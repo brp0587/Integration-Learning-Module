@@ -239,6 +239,22 @@
         }
 
         .credits { font-size: 1.1rem; color: #bae6fd; font-weight: bold; }
+
+        /* Formula Box Styling */
+        .formula-highlight-box {
+            background-color: #fffbeb;
+            border-left: 5px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .formula-highlight-box h4 {
+            color: #b45309;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -259,6 +275,9 @@
                 Standard Integration Formulas 
                 <span class="gu">સંકલનના પ્રમાણિત સૂત્રો</span>
             </h2>
+            <div class="en-text" style="margin-bottom: 1rem;">
+                Integration is the mathematical process of finding the antiderivative of a function. The constant of integration, denoted as \( c \), is always added to indefinite integrals because the derivative of a constant is zero. 
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -275,6 +294,8 @@
                     <tr><td>\( \cos x \)</td><td>\( \sin x + c \)</td></tr>
                     <tr><td>\( \sec^2 x \)</td><td>\( \tan x + c \)</td></tr>
                     <tr><td>\( \sec x \tan x \)</td><td>\( \sec x + c \)</td></tr>
+                    <tr><td>\( \csc^2 x \)</td><td>\( -\cot x + c \)</td></tr>
+                    <tr><td>\( \csc x \cot x \)</td><td>\( -\csc x + c \)</td></tr>
                     <tr><td>\( \frac{1}{1+x^2} \)</td><td>\( \tan^{-1} x + c \)</td></tr>
                     <tr><td>\( \frac{1}{\sqrt{1-x^2}} \)</td><td>\( \sin^{-1} x + c \)</td></tr>
                 </tbody>
@@ -288,13 +309,16 @@
             </h2>
             <div class="bilingual-grid">
                 <div class="en-text">
-                    Integration is the reverse of differentiation. The standard working rule is Linearity: 
-                    <br>\( \int [a f(x) + b g(x)] dx = a \int f(x) dx + b \int g(x) dx \)
+                    <strong>Linearity Rule:</strong> Integration is the reverse of differentiation. When integrating a sum or difference of functions multiplied by constants, you can integrate each function separately and multiply by the constant.
                 </div>
                 <div class="gu-text">
-                    સંકલન એ વિકલનની ઉલટી પ્રક્રિયા છે. તેનો મુખ્ય કાર્યનિયમ સુરેખતા છે: 
-                    <br>\( \int [a f(x) + b g(x)] dx = a \int f(x) dx + b \int g(x) dx \)
+                    <strong>સુરેખતાનો નિયમ:</strong> સંકલન એ વિકલનની ઉલટી પ્રક્રિયા છે. બે વિધેયોના સરવાળા કે બાદબાકીના સંકલનને અલગ-અલગ કરી શકાય છે. અચળ પદને સંકલનની બહાર કાઢી શકાય છે.
                 </div>
+            </div>
+
+            <div class="formula-highlight-box">
+                <h4>Linearity Property / સુરેખતાનો ગુણધર્મ:</h4>
+                <p>\( \int [a \cdot f(x) \pm b \cdot g(x)] dx = a \int f(x) dx \pm b \int g(x) dx \)</p>
             </div>
 
             <div class="example-box">
@@ -316,7 +340,7 @@
                 </div>
                 <div class="step">
                     <strong>Step 2:</strong> Apply power rule with \(n=-2\).<br>
-                    $$ I = \frac{x^{-2+1}}{-2+1} + c = -\frac{1}{x} + c $$
+                    $$ I = \frac{x^{-2+1}}{-2+1} + c = \frac{x^{-1}}{-1} + c = -\frac{1}{x} + c $$
                 </div>
             </div>
 
@@ -350,38 +374,39 @@
                 3.3 Method of Substitution 
                 <span class="gu">આદેશની રીત</span>
             </h2>
+            <div class="bilingual-grid">
+                <div class="en-text">
+                    <strong>Substitution Method:</strong> Used when an integral contains a composite function \( f(g(x)) \) multiplied by the derivative of its inner function \( g'(x) \). We substitute the inner function with a new variable \( t \).
+                </div>
+                <div class="gu-text">
+                    <strong>આદેશની રીત:</strong> જ્યારે સંકલનમાં કોઈ વિધેય અને તેનું વિકલિત બંને આપેલા હોય, ત્યારે તે વિધેય બરાબર નવો ચલ \( t \) ધારવામાં આવે છે જેથી સંકલન સરળ બને.
+                </div>
+            </div>
+
+            <div class="formula-highlight-box">
+                <h4>Substitution Rule / આદેશનું સૂત્ર:</h4>
+                <p>If \( I = \int f(g(x)) \cdot g'(x) dx \)<br>
+                Let \( g(x) = t \implies g'(x) dx = dt \)<br>
+                Then, \( I = \int f(t) dt \)</p>
+            </div>
 
             <div class="example-box">
                 <div class="example-title">Example 1: Evaluate \(\int \frac{\cos(\log x)}{x} dx\)</div>
                 <div class="step">
-                    <strong>Step 1:</strong> Let \( \log x = t \). Differentiating gives \( \frac{1}{x} dx = dt \).
+                    <strong>Step 1:</strong> Notice that the derivative of \(\log x\) is \(\frac{1}{x}\). Let \( \log x = t \). Differentiating both sides gives \( \frac{1}{x} dx = dt \).
                 </div>
                 <div class="step">
                     <strong>Step 2:</strong> Substitute into the integral.<br>
                     $$ I = \int \cos(t) dt $$
                 </div>
                 <div class="step">
-                    <strong>Step 3:</strong> Integrate and replace \(t\).<br>
+                    <strong>Step 3:</strong> Integrate and replace \(t\) with \(\log x\).<br>
                     $$ I = \sin(t) + c = \sin(\log x) + c $$
                 </div>
             </div>
 
             <div class="example-box">
-                <div class="example-title">Example 2: Evaluate \(\int \frac{\cos\sqrt{x}}{2\sqrt{x}} dx\)</div>
-                <div class="step">
-                    <strong>Step 1:</strong> Let \( \sqrt{x} = t \). Then \( \frac{1}{2\sqrt{x}} dx = dt \).
-                </div>
-                <div class="step">
-                    <strong>Step 2:</strong> The integral becomes:<br>
-                    $$ I = \int \cos(t) dt $$
-                </div>
-                <div class="step">
-                    <strong>Step 3:</strong> $$ I = \sin(t) + c = \sin(\sqrt{x}) + c $$
-                </div>
-            </div>
-
-            <div class="example-box">
-                <div class="example-title">Example 3: Evaluate \(\int x \sin(x^2) dx\)</div>
+                <div class="example-title">Example 2: Evaluate \(\int x \sin(x^2) dx\)</div>
                 <div class="step">
                     <strong>Step 1:</strong> Let \( x^2 = t \). Differentiating gives \( 2x dx = dt \implies x dx = \frac{dt}{2} \).
                 </div>
@@ -396,9 +421,9 @@
             </div>
 
             <div class="example-box">
-                <div class="example-title">Example 4: Evaluate \(\int \frac{e^{\tan^{-1} x}}{1+x^2} dx\)</div>
+                <div class="example-title">Example 3: Evaluate \(\int \frac{e^{\tan^{-1} x}}{1+x^2} dx\)</div>
                 <div class="step">
-                    <strong>Step 1:</strong> Let \( \tan^{-1} x = t \). Then \( \frac{1}{1+x^2} dx = dt \).
+                    <strong>Step 1:</strong> The derivative of \(\tan^{-1} x\) is \(\frac{1}{1+x^2}\). Let \( \tan^{-1} x = t \). Then \( \frac{1}{1+x^2} dx = dt \).
                 </div>
                 <div class="step">
                     <strong>Step 2:</strong> The integral simplifies to:<br>
@@ -414,29 +439,44 @@
         <div class="section">
             <h2 class="section-title">
                 3.4 Integration By Parts 
-                <span class="gu">ખંડશઃ સંકલન</span>
+                <span class="gu">ખંડશઃ સંકલન (ગુણાકારનો નિયમ)</span>
             </h2>
+            <div class="bilingual-grid">
+                <div class="en-text">
+                    <strong>Integration by Parts:</strong> This method is used when two functions are multiplied together. It acts as the product rule for integration. The order in which you choose the first function (\(u\)) and the second function (\(v\)) is crucial and is determined by the <strong>LIATE</strong> rule.
+                </div>
+                <div class="gu-text">
+                    <strong>ખંડશઃ સંકલન:</strong> જ્યારે બે જુદા જુદા પ્રકારના વિધેયોનો ગુણાકાર આપ્યો હોય ત્યારે આ રીતનો ઉપયોગ થાય છે. આ સંકલન માટેના ગુણાકારનો નિયમ છે. પ્રથમ વિધેય (\(u\)) અને દ્વિતીય વિધેય (\(v\)) ની પસંદગી <strong>LIATE</strong> ના નિયમ મુજબ કરવામાં આવે છે.
+                </div>
+            </div>
 
-            <div style="background-color: #e0f2fe; padding: 20px; border-radius: 10px; margin: 0 0 2rem 0; border: 1px solid #bae6fd; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <h3 style="color: #0369a1; margin-top: 0; display: flex; align-items: center;">
+            <div class="formula-highlight-box" style="border-left-color: #1e3a8a; background-color: #eff6ff;">
+                <h4 style="color: #1e3a8a;">Formula for Integration by Parts / ખંડશઃ સંકલનનું સૂત્ર:</h4>
+                <p>If \(u\) and \(v\) are two functions of \(x\), then:</p>
+                <p>$$ \int u \cdot v \, dx = u \int v \, dx - \int \left( \frac{du}{dx} \int v \, dx \right) dx $$</p>
+                <p><strong>In Words:</strong> (First function) × (Integral of Second) - Integral of [ (Derivative of First) × (Integral of Second) ]</p>
+            </div>
+
+            <div style="background-color: #fdf2f8; padding: 20px; border-radius: 10px; margin: 0 0 2rem 0; border: 1px solid #fbcfe8; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h3 style="color: #9d174d; margin-top: 0; display: flex; align-items: center;">
                     <span style="font-size: 1.5em; margin-right: 10px;">💡</span> 
                     The LIATE Rule (LIATE નો નિયમ)
                 </h3>
                 
                 <p style="color: #0f172a; margin-bottom: 15px;">
-                    The <strong>LIATE</strong> rule is used in <strong>Integration by Parts (ખંડશઃ સંકલન)</strong> to decide the priority of functions. The function that appears first in the word LIATE is chosen as the first function (\( u \)), and the other is chosen as the second function (\( v \)).
+                    The <strong>LIATE</strong> rule is used to decide which function should be \(u\) (the one to differentiate) and which should be \(v\) (the one to integrate). The function that comes <strong>first</strong> in the word LIATE is chosen as \( u \).
                 </p>
 
                 <ul style="line-height: 2; color: #1e293b; font-size: 16px; margin-bottom: 15px;">
-                    <li><strong>L</strong> = Logarithmic (લઘુગણકીય વિધેયો) &rarr; e.g., \( \log x, \ln x \)</li>
-                    <li><strong>I</strong> = Inverse Trigonometric (પ્રતિ-ત્રિકોણમિતિય વિધેયો) &rarr; e.g., \( \sin^{-1}x, \tan^{-1}x \)</li>
-                    <li><strong>A</strong> = Algebraic (બૈજિક વિધેયો) &rarr; e.g., \( x, x^2, x^3 \)</li>
-                    <li><strong>T</strong> = Trigonometric (ત્રિકોણમિતિય વિધેયો) &rarr; e.g., \( \sin x, \cos x \)</li>
-                    <li><strong>E</strong> = Exponential (ઘાતાંકીય વિધેયો) &rarr; e.g., \( e^x, 2^x \)</li>
+                    <li><strong>L</strong> = <strong>Logarithmic</strong> (લઘુગણકીય વિધેયો) &rarr; e.g., \( \log x, \ln x \)</li>
+                    <li><strong>I</strong> = <strong>Inverse Trigonometric</strong> (પ્રતિ-ત્રિકોણમિતિય વિધેયો) &rarr; e.g., \( \sin^{-1}x, \tan^{-1}x \)</li>
+                    <li><strong>A</strong> = <strong>Algebraic</strong> (બૈજિક વિધેયો) &rarr; e.g., \( x, x^2, x^3 \)</li>
+                    <li><strong>T</strong> = <strong>Trigonometric</strong> (ત્રિકોણમિતિય વિધેયો) &rarr; e.g., \( \sin x, \cos x \)</li>
+                    <li><strong>E</strong> = <strong>Exponential</strong> (ઘાતાંકીય વિધેયો) &rarr; e.g., \( e^x, 2^x \)</li>
                 </ul>
                 
-                <div style="background-color: #ffffff; padding: 10px 15px; border-left: 4px solid #0369a1; border-radius: 0 5px 5px 0;">
-                    <strong>Example (ઉદાહરણ):</strong> In \( \int x \log x \, dx \), \( \log x \) is (L) and \( x \) is (A). Since 'L' comes before 'A' in LIATE, we take \( u = \log x \) and \( v = x \).
+                <div style="background-color: #ffffff; padding: 10px 15px; border-left: 4px solid #9d174d; border-radius: 0 5px 5px 0;">
+                    <strong>Example (ઉદાહરણ):</strong> In \( \int x \log x \, dx \), we have \( x \) (Algebraic) and \( \log x \) (Logarithmic). Since 'L' comes before 'A' in the word LIATE, we take \( u = \log x \) and \( v = x \).
                 </div>
             </div>
 
@@ -474,11 +514,11 @@
             <div class="example-box">
                 <div class="example-title">Example 3: Evaluate \(\int x \sin x dx\)</div>
                 <div class="step">
-                    <strong>Step 1:</strong> By LIATE, \(u = x\) and \(v = \sin x\).
+                    <strong>Step 1:</strong> By LIATE, \(u = x\) (A) and \(v = \sin x\) (T).
                 </div>
                 <div class="step">
                     <strong>Step 2:</strong> Apply formula.<br>
-                    $$ I = x \int \sin x dx - \int \left( 1 \cdot \int \sin x dx \right) dx $$
+                    $$ I = x \int \sin x dx - \int \left( \frac{d}{dx}(x) \cdot \int \sin x dx \right) dx $$
                 </div>
                 <div class="step">
                     <strong>Step 3:</strong> Evaluate.<br>
@@ -509,6 +549,20 @@
                 3.5 Definite Integral & Properties
                 <span class="gu">નિયત સંકલિત અને ગુણધર્મો</span>
             </h2>
+            <div class="bilingual-grid">
+                <div class="en-text">
+                    <strong>Definite Integral:</strong> A definite integral has upper and lower limits. It calculates the exact net area under a curve between those two points. No constant of integration (\(+c\)) is needed.
+                </div>
+                <div class="gu-text">
+                    <strong>નિયત સંકલિત:</strong> નિયત સંકલનમાં ઉપલી અને નીચલી સીમાઓ આપેલી હોય છે. તે આપેલ વક્રના નીચેના ક્ષેત્રફળની ચોક્કસ કિંમત આપે છે. તેમાં સંકલનનો અચળાંક (\(+c\)) મુકાતો નથી.
+                </div>
+            </div>
+
+            <div class="formula-highlight-box">
+                <h4>Fundamental Theorem of Calculus / મૂળભૂત પ્રમેય:</h4>
+                <p>$$ \int_{a}^{b} f(x) dx = [F(x)]_a^b = F(b) - F(a) $$</p>
+                <p>Where \( F(x) \) is the integral of \( f(x) \), \( b \) is the upper limit, and \( a \) is the lower limit.</p>
+            </div>
 
             <div class="example-box">
                 <div class="example-title">Example 1: Evaluate \(\int_{0}^{1} e^x dx\)</div>
@@ -551,19 +605,6 @@
                 </div>
             </div>
 
-            <div class="example-box">
-                <div class="example-title">Example 4: Evaluate \(\int_{1}^{e} \frac{(\log x)^2}{x} dx\)</div>
-                <div class="step">
-                    <strong>Step 1:</strong> Substitution. Let \(\log x = t \implies \frac{1}{x} dx = dt\).
-                </div>
-                <div class="step">
-                    <strong>Step 2:</strong> Change Limits: When \(x=1, t=\log(1)=0\). When \(x=e, t=\log(e)=1\).
-                </div>
-                <div class="step">
-                    <strong>Step 3:</strong> Evaluate new integral.<br>
-                    $$ I = \int_{0}^{1} t^2 dt = \left[ \frac{t^3}{3} \right]_0^1 = \frac{1^3}{3} - 0 = \frac{1}{3} $$
-                </div>
-            </div>
         </div>
 
         <div class="section">
@@ -571,6 +612,19 @@
                 3.6 Applications: Area
                 <span class="gu">ઉપયોગો: ક્ષેત્રફળ</span>
             </h2>
+            <div class="bilingual-grid">
+                <div class="en-text">
+                    <strong>Area Under a Curve:</strong> The area \(A\) bounded by the curve \(y = f(x)\), the x-axis, and the vertical lines \(x = a\) and \(x = b\) is given by the definite integral of \(f(x)\) from \(a\) to \(b\).
+                </div>
+                <div class="gu-text">
+                    <strong>વક્ર નીચેનું ક્ષેત્રફળ:</strong> વક્ર \(y = f(x)\), X-અક્ષ અને રેખાઓ \(x = a\), \(x = b\) વડે ઘેરાયેલા પ્રદેશનું ક્ષેત્રફળ એ \(a\) થી \(b\) સુધીના નિયત સંકલિત બરાબર થાય છે.
+                </div>
+            </div>
+
+            <div class="formula-highlight-box">
+                <h4>Area Formula / ક્ષેત્રફળનું સૂત્ર:</h4>
+                <p>$$ Area = \int_{a}^{b} y \, dx = \int_{a}^{b} f(x) \, dx $$</p>
+            </div>
 
             <div class="example-box">
                 <div class="example-title">Example 1: Area bounded by curve \(y = 3x^2\), lines \(x = 2, x = 3\) and X-axis.</div>
@@ -591,42 +645,7 @@
             </div>
 
             <div class="example-box">
-                <div class="example-title">Example 2: Area bounded by curve \(y = x^2\), lines \(x = 1, x = 2\) and X-axis.</div>
-                <div class="diagram-container">
-                    <svg width="250" height="150" viewBox="0 0 300 200">
-                        <line x1="20" y1="180" x2="280" y2="180" stroke="black" stroke-width="2" />
-                        <line x1="20" y1="20" x2="20" y2="180" stroke="black" stroke-width="2" />
-                        <path d="M 20 180 Q 180 170 260 20" fill="none" stroke="#be185d" stroke-width="3"/>
-                        <path d="M 100 180 L 100 170 Q 140 145 180 100 L 180 180 Z" fill="#059669" opacity="0.3"/>
-                        <line x1="100" y1="180" x2="100" y2="170" stroke="black" stroke-dasharray="4"/>
-                        <line x1="180" y1="180" x2="180" y2="100" stroke="black" stroke-dasharray="4"/>
-                        <text x="90" y="195" font-size="12">x=1</text><text x="170" y="195" font-size="12">x=2</text>
-                    </svg>
-                </div>
-                <div class="step">
-                    $$ A = \int_{1}^{2} x^2 dx = \left[ \frac{x^3}{3} \right]_1^2 = \frac{8}{3} - \frac{1}{3} = \frac{7}{3} \text{ sq. units} $$
-                </div>
-            </div>
-
-            <div class="example-box">
-                <div class="example-title">Example 3: Area bounded by line \(y = x\), \(x=5\) and X-axis.</div>
-                <div class="diagram-container">
-                    <svg width="250" height="150" viewBox="0 0 300 200">
-                        <line x1="20" y1="180" x2="280" y2="180" stroke="black" stroke-width="2" />
-                        <line x1="20" y1="20" x2="20" y2="180" stroke="black" stroke-width="2" />
-                        <line x1="20" y1="180" x2="220" y2="20" stroke="#be185d" stroke-width="3"/>
-                        <path d="M 20 180 L 220 20 L 220 180 Z" fill="#059669" opacity="0.3"/>
-                        <line x1="220" y1="180" x2="220" y2="20" stroke="black" stroke-dasharray="4"/>
-                        <text x="210" y="195" font-size="12">x=5</text>
-                    </svg>
-                </div>
-                <div class="step">
-                    $$ A = \int_{0}^{5} x dx = \left[ \frac{x^2}{2} \right]_0^5 = \frac{25}{2} - 0 = 12.5 \text{ sq. units} $$
-                </div>
-            </div>
-
-            <div class="example-box">
-                <div class="example-title">Example 4: Find the area of circle \(x^2 + y^2 = a^2\) using integration.</div>
+                <div class="example-title">Example 2: Find the area of circle \(x^2 + y^2 = a^2\) using integration.</div>
                 <div class="diagram-container">
                     <svg width="200" height="200" viewBox="0 0 200 200">
                         <line x1="10" y1="100" x2="190" y2="100" stroke="black" stroke-width="2" />
@@ -656,6 +675,19 @@
                 Applications: Volume of Solid of Revolution
                 <span class="gu">ઉપયોગો: પરિભ્રમણથી બનતા ઘનનું ઘનફળ</span>
             </h2>
+            <div class="bilingual-grid">
+                <div class="en-text">
+                    <strong>Volume of Revolution:</strong> When a curve \(y = f(x)\) is rotated 360° around the x-axis, it creates a 3D solid. The volume of this solid is calculated by integrating the area of circular slices (\(\pi y^2\)).
+                </div>
+                <div class="gu-text">
+                    <strong>પરિભ્રમણ ઘનફળ:</strong> જ્યારે વક્ર \(y = f(x)\) ને X-અક્ષની આસપાસ 360° પરિભ્રમણ કરાવવામાં આવે છે, ત્યારે એક ઘન આકાર બને છે. આ આકારનું ઘનફળ શોધવા માટે વર્તુળાકાર આડછેદ (\(\pi y^2\)) નું સંકલન કરવામાં આવે છે.
+                </div>
+            </div>
+
+            <div class="formula-highlight-box">
+                <h4>Volume Formula / ઘનફળનું સૂત્ર:</h4>
+                <p>$$ Volume = \pi \int_{a}^{b} y^2 \, dx = \pi \int_{a}^{b} [f(x)]^2 \, dx $$</p>
+            </div>
 
             <div class="example-box">
                 <div class="example-title">1. Volume of a Cylinder (નળાકારનું ઘનફળ)</div>
