@@ -417,6 +417,29 @@
                 <span class="gu">ખંડશઃ સંકલન</span>
             </h2>
 
+            <div style="background-color: #e0f2fe; padding: 20px; border-radius: 10px; margin: 0 0 2rem 0; border: 1px solid #bae6fd; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h3 style="color: #0369a1; margin-top: 0; display: flex; align-items: center;">
+                    <span style="font-size: 1.5em; margin-right: 10px;">💡</span> 
+                    The LIATE Rule (LIATE નો નિયમ)
+                </h3>
+                
+                <p style="color: #0f172a; margin-bottom: 15px;">
+                    The <strong>LIATE</strong> rule is used in <strong>Integration by Parts (ખંડશઃ સંકલન)</strong> to decide the priority of functions. The function that appears first in the word LIATE is chosen as the first function (\( u \)), and the other is chosen as the second function (\( v \)).
+                </p>
+
+                <ul style="line-height: 2; color: #1e293b; font-size: 16px; margin-bottom: 15px;">
+                    <li><strong>L</strong> = Logarithmic (લઘુગણકીય વિધેયો) &rarr; e.g., \( \log x, \ln x \)</li>
+                    <li><strong>I</strong> = Inverse Trigonometric (પ્રતિ-ત્રિકોણમિતિય વિધેયો) &rarr; e.g., \( \sin^{-1}x, \tan^{-1}x \)</li>
+                    <li><strong>A</strong> = Algebraic (બૈજિક વિધેયો) &rarr; e.g., \( x, x^2, x^3 \)</li>
+                    <li><strong>T</strong> = Trigonometric (ત્રિકોણમિતિય વિધેયો) &rarr; e.g., \( \sin x, \cos x \)</li>
+                    <li><strong>E</strong> = Exponential (ઘાતાંકીય વિધેયો) &rarr; e.g., \( e^x, 2^x \)</li>
+                </ul>
+                
+                <div style="background-color: #ffffff; padding: 10px 15px; border-left: 4px solid #0369a1; border-radius: 0 5px 5px 0;">
+                    <strong>Example (ઉદાહરણ):</strong> In \( \int x \log x \, dx \), \( \log x \) is (L) and \( x \) is (A). Since 'L' comes before 'A' in LIATE, we take \( u = \log x \) and \( v = x \).
+                </div>
+            </div>
+
             <div class="example-box">
                 <div class="example-title">Example 1: Evaluate \(\int x \log x dx\)</div>
                 <div class="step">
@@ -744,7 +767,7 @@
 <footer class="page-footer">
     <div class="visit-counter" style="margin-bottom: 5px;">
         This Page Visits: 
-        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fbrp0587.github.io%2Fmatrices&labelColor=%230F172A&countColor=%2310B981&style=flat" alt="Page Counter" style="vertical-align: middle;">
+        <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fbrp0587.github.io%2Fintegration&labelColor=%230F172A&countColor=%2310B981&style=flat" alt="Page Counter" style="vertical-align: middle;">
     </div>
 
     <div class="visit-counter" style="margin-bottom: 15px;">
@@ -762,7 +785,7 @@
             let count = localStorage.getItem("math_site_visits");
             count = count ? parseInt(count) + 1 : 1;
             localStorage.setItem("math_site_visits", count);
-            document.getElementById("visitCounter").innerText = `Page Visits: ${count}`;
+            // Note: The visual counter is handled by visitorbadge.io now, but kept local storage intact for your logic.
         });
 
         function toggleAdvLimits() {
@@ -779,12 +802,7 @@
             s = s.replace(/cos\^-1\s*\(?/g, 'acos(');
             s = s.replace(/tan\^-1\s*\(?/g, 'atan(');
             
-            // Note: If they type sin^-1 x without closing parenthesis, 
-            // nerdamer might still parse 'asin(x)' if we leave it as 'asin( x'. 
-            // We rely on Nerdamer's flexibility here.
-            
             // 2. Implicit multiplication (e.g. "x sin(x)" -> "x*sin(x)")
-            // Match variable 'x' or number followed by space and a function name
             s = s.replace(/([x0-9])\s+(sin|cos|tan|log|ln|exp|asin|acos|atan)/g, '$1*$2');
             
             return s;
@@ -870,7 +888,7 @@
                     stepsHTML += `
                     <div class="step">
                         <strong>Step 3: Apply Limits (Fundamental Theorem)</strong><br>
-                        Substitute \(x = ${upperStr}\) and \(x = ${lowerStr}\).
+                        Substitute \\(x = ${upperStr}\\) and \\(x = ${lowerStr}\\).
                         $$ I = \\left[ ${integralTex} \\right]_{${lowerStr}}^{${upperStr}} $$
                         $$ I = (${valUpper.toTeX()}) - (${valLower.toTeX()}) $$
                     </div>
